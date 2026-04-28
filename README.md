@@ -1,3 +1,5 @@
+PrivacyLens — AI-powered privacy policy analyzer that rates Terms & Conditions from A to E, so you know what you're agreeing to before you click accept.
+
 To Run Backend Server or to install something
 1. enter be folder: cd backend
 2. activate venv: venv/Scripts/activate
