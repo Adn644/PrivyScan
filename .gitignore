@@ -1,0 +1,8 @@
+models/
+Models/
+__pycache__/
+*.pyc
+.env
+*.pt
+*.bin
+compress_bart.py
