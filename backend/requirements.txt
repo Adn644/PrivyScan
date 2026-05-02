@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+transformers
+torch
+scikit-learn       
+numpy
+python-multipart
+sentencepiece
+protobuf
+huggingface_hub
+httpx
