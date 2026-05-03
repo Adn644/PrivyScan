@@ -24,5 +24,3 @@ def scrape_policy(data: WebsiteInput):
     except Exception as e:
         return {"error": str(e)}
 
-
-@router.post("/chunk-policy")
