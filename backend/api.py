@@ -64,41 +64,50 @@ with open(os.path.join(CLASSIFIER_PATH, "label_encoder.pkl"), "rb") as f:
 
 print(f"All models loaded on {device}!")
 
-# ── step 1: chunker ───────────────────────────────────────────────
-def chunk_text(text, max_tokens=512):
-    encode = lambda t: rating_tokenizer(
-        t, truncation=False, return_tensors="pt"
-    )["input_ids"][0]
+# ── step 1: chunker + cleaner ───────────────────────────────────────────────
+MAX_TOKENS = 512
 
-    chunks    = []
-    remaining = text.strip()
+def clean_text(text: str) -> str:
+    text = text.replace("\r", "\n")
+    text = "\n".join(
+        line.strip() for line in text.split("\n") if line.strip()
+    )
+    return text
 
-    while remaining:
-        token_ids = encode(remaining)
+def chunk_text(text: str, max_tokens: int = MAX_TOKENS):
+    text = clean_text(text)
+    paragraphs = text.split("\n")
 
-        if len(token_ids) <= max_tokens:
-            chunks.append(remaining.strip())
-            break
+    chunks = []
+    current_paragraphs = []
+    current_tokens = 0
 
-        truncated = rating_tokenizer.decode(
-            token_ids[:max_tokens], skip_special_tokens=True
-        )
-        last_sep = truncated.rfind("---")
+    for para in paragraphs:
+        para_tokens = len(rating_tokenizer.encode(para, add_special_tokens=False))
 
-        if last_sep != -1:
-            chunk     = remaining[:last_sep].strip()
-            remaining = remaining[last_sep + 3:].strip()
+        if para_tokens > max_tokens:
+            if current_paragraphs:
+                chunks.append(" ".join(current_paragraphs).strip())
+
+            tokens = rating_tokenizer.encode(para, add_special_tokens=False)
+            for i in range(0, len(tokens), max_tokens):
+                sub_chunk = rating_tokenizer.decode(tokens[i:i + max_tokens], skip_special_tokens=True)
+                chunks.append(sub_chunk.strip())
+
+            current_paragraphs = []
+            current_tokens = 0
+            continue
+
+        if current_tokens + para_tokens <= max_tokens:
+            current_paragraphs.append(para)
+            current_tokens += para_tokens
         else:
-            last_period = truncated.rfind(".")
-            if last_period != -1:
-                chunk     = truncated[:last_period + 1].strip()
-                remaining = remaining[len(chunk):].strip()
-            else:
-                chunk     = truncated.strip()
-                remaining = remaining[len(chunk):].strip()
+            chunks.append(" ".join(current_paragraphs).strip())
+            current_paragraphs = [para]
+            current_tokens = para_tokens
 
-        if chunk:
-            chunks.append(chunk)
+    if current_paragraphs:
+        chunks.append(" ".join(current_paragraphs).strip())
 
     return chunks
 
