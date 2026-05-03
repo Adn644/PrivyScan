@@ -1,29 +1,17 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service
-import time
+from playwright.sync_api import sync_playwright
 
+def scrape_policy_text(url: str):
+    with sync_playwright() as p:
+        browser = p.chromium.launch(
+            headless=True,
+            args=["--no-sandbox"]
+        )
+        page = browser.new_page()
 
-def scrape_policy_text(policy_url: str):
-    options = Options()
-    options.add_argument("--headless")
-    options.add_argument("--disable-gpu")
-    options.add_argument("--no-sandbox")
+        page.goto(url, timeout=60000)
+        page.wait_for_load_state("networkidle")
 
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()),
-        options=options
-    )
+        text = page.inner_text("body")
 
-    driver.get(policy_url)
-
-    # wait for JS content to load
-    time.sleep(5)
-
-    page_text = driver.find_element(By.TAG_NAME, "body").text
-
-    driver.quit()
-
-    return page_text
+        browser.close()
+        return text
