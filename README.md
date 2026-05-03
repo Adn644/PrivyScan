@@ -1,3 +1,5 @@
+> **"You clicked 'I agree.' We actually read it."**
+
 PrivyScan — AI-powered privacy policy analyzer that rates Terms & Conditions from A to E, so you know what you're agreeing to before you click accept.
 
 To Run Backend Server or to install something
