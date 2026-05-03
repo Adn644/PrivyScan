@@ -1,6 +1,6 @@
 # ─────────────────────────────────────────────
 # PrivyScan ML API
-# Runs on: https://adn06-privyscan-api.hf.space
+# Runs on: https://projectextraction69-privyscan-api.hf.space/docs
 # Endpoint: POST /analyze
 # Deployed on: Hugging Face Spaces (Docker)
 # ─
