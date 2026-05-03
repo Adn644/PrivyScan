@@ -26,16 +26,3 @@ def scrape_policy(data: WebsiteInput):
 
 
 @router.post("/chunk-policy")
-def chunk_policy(data: PolicyTextInput):
-    try:
-        chunks = chunk_by_paragraph(data.policy_text)
-
-        return {
-            "message": "Policy chunked successfully",
-            "total_chunks": len(chunks),
-            "max_tokens_per_chunk": 500,
-            "chunks": chunks
-        }
-
-    except Exception as e:
-        return {"error": str(e)}
