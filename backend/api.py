@@ -1,3 +1,11 @@
+# ─────────────────────────────────────────────
+# PrivyScan ML API
+# Runs on: https://adn06-privyscan-api.hf.space
+# Endpoint: POST /analyze
+# Deployed on: Hugging Face Spaces (Docker)
+# ─
+
+
 import os
 import pickle
 import torch
