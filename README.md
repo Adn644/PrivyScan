@@ -10,4 +10,4 @@ To Run Backend Server or to install something
 5. to start server: uvicorn app.main:app --reload
 
 
-## 👥 Team Spaghetti
+## ~by Team Spaghetti
