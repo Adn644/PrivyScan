@@ -8,6 +8,5 @@ python-multipart
 sentencepiece
 protobuf
 huggingface_hub
-selenium
-webdriver-manager
+playwright
 httpx
