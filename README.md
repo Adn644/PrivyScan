@@ -8,3 +8,6 @@ To Run Backend Server or to install something
 3. install dependencies or start server
 4. Installation: pip install deps
 5. to start server: uvicorn app.main:app --reload
+
+
+## 👥 Team Spaghetti
