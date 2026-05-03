@@ -2,7 +2,7 @@ from transformers import AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained("nlpaueb/legal-bert-base-uncased")
 
-MAX_TOKENS = 500
+MAX_TOKENS = 512
 
 
 def clean_text(text: str) -> str:
