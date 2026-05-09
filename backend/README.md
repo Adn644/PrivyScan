@@ -27,22 +27,17 @@ https://privyscan-backend.onrender.com/docs
 
 Machine learning models and inference pipelines are hosted separately using Hugging Face Spaces.
 
+HF Space URL:
+
+```bash
+https://huggingface.co/spaces/Adn06/PrivyScan_api
+```
+
 This architecture allows:
-- scalable backend deployment
-- separate ML inference handling
-- cleaner frontend-backend communication
-- modular deployment structure
-
----
-
-### Deployment Architecture
-
-| Component | Platform |
-|---|---|
-| Backend API | Render |
-| ML Model Hosting | Hugging Face Spaces |
-| Version Control | GitHub |
-| Containerization | Docker |
+- NLP inference
+- privacy policy analysis
+- model prediction pipeline
+- ML processing workflows
 
 ---
 ## Tech Stack
