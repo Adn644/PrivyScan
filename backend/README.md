@@ -23,7 +23,28 @@ https://privyscan-backend.onrender.com/docs
 ```
 
 ---
+### ML Model & Inference Hosting (Hugging Face Spaces)
 
+Machine learning models and inference pipelines are hosted separately using Hugging Face Spaces.
+
+This architecture allows:
+- scalable backend deployment
+- separate ML inference handling
+- cleaner frontend-backend communication
+- modular deployment structure
+
+---
+
+### Deployment Architecture
+
+| Component | Platform |
+|---|---|
+| Backend API | Render |
+| ML Model Hosting | Hugging Face Spaces |
+| Version Control | GitHub |
+| Containerization | Docker |
+
+---
 ## Tech Stack
 
 - FastAPI
