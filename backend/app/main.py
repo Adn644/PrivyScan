@@ -16,3 +16,7 @@ app.add_middleware(
 )
 
 app.include_router(router)
+
+@app.get("/")
+def health():
+    return {"status": "ok", "service": "PrivyScan Backend"}
