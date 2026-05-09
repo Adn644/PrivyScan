@@ -1,10 +1,19 @@
 import React from "react";
 import hero from "../assets/image.png";
+import { FaArrowRight } from "react-icons/fa";
+import {useNavigate} from 'react-router-dom';
+import {useState} from 'react';
 
 const Home = () => {
+    const navigate = useNavigate();
+    const [pageUrl, setPageUrl] = useState("");
+    const handleSubmit = () => {
+        navigate('/analysis', { state: { pageUrl } });
+    };
+
     return (
-        <div className="relative h-screen overflow-hidden" style={{ background: 'var(--color-ps-bckgnd)' }}>
-            <p style={{ fontFamily: 'Italiana', color: 'var(--color-ps-fo)' }} className="absolute left-10 top-4 z-30 text-3xl">PrivyScan</p>
+        <div className="relative h-screen overflow-hidden">
+            <p style={{ fontFamily: 'Italiana', color: 'var(--color-ps-fo)' }} className="absolute left-4 top-4 z-30 text-3xl">PrivyScan</p>
 
             <div className="relative z-30 h-full flex items-center">
                 <div className="pl-14 mt-10 max-w-[720px]">
@@ -18,9 +27,18 @@ const Home = () => {
                     </p>
 
                     <div className="mt-8">
-                        <div style={{ border: '4px solid var(--color-ps-yb)', borderRadius: '42px' }} className="flex items-center w-[600px] px-6 py-3">
-                            <input aria-label="url" className="flex-1 outline-none bg-transparent placeholder:text-[#9aa6b3] text-[24px]" placeholder="https://example.com" style={{ fontFamily: 'Junge' }} />
-                            <button className="ml-6 scale-200 text-ps-yb text-[24px]" >→</button>
+                        <div style={{ border: '4px solid var(--color-ps-yb)', borderRadius: '42px' }} className="flex items-center w-[600px] px-3 py-2">
+                                                        <input
+                                                            aria-label="url"
+                                                            value={pageUrl}
+                                                            onChange={(event) => setPageUrl(event.target.value)}
+                                                            className="flex-1 outline-none bg-transparent placeholder:text-[#9aa6b3] text-xl"
+                                                            placeholder="https://example.com"
+                                                            style={{ fontFamily: 'Junge' }}
+                                                        />
+                            <FaArrowRight 
+                                                        onClick={handleSubmit}
+                            className="text-ps-yb" />
                         </div>
                     </div>
                     

@@ -2,6 +2,8 @@ import React from "react";
 import './App.css'
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom'
 import Home from './pages/Home'
+import Analysis from './pages/Analysis'
+  import Results from './pages/Results'
 
 const SiteLayout = () => {
   return (
@@ -20,6 +22,8 @@ const App = () => {
         <Routes>
           <Route element={<SiteLayout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/analysis" element={<Analysis />} />
+                     <Route path="/results" element={<Results />} />
           </Route>
         </Routes>
     </Router>
