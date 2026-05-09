@@ -2,6 +2,14 @@
 
 PrivyScan — AI-powered privacy policy analyzer that rates Terms & Conditions from A to E, so you know what you're agreeing to before you click accept.
 
+| Component | Platform |
+|---|---|
+| Frontend | Vercel |
+| Backend API | Render |
+| ML Inference | Hugging Face Spaces |
+| Version Control | GitHub |
+| Containerization | Docker |
+
 To Run Backend Server or to install something
 1. enter be folder: cd backend
 2. activate venv: venv/Scripts/activate
