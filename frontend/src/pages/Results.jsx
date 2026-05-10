@@ -38,11 +38,11 @@ const Results = () => {
 
   return (
     <div className="relative flex items-center justify-center min-h-screen overflow-hidden">
-        <p className="absolute top-6 left-4 font-brand text-ps-fo text-3xl mb-4">
+        <p className="absolute top-4 sm:top-6 left-4 font-brand text-ps-fo text-2xl sm:text-3xl mb-4">
             PrivyScan
         </p>
-        <div className="flex flex-col max-w-lg items-center justify-center py-16">
-            <p className="font-pecita text-ps-fo text-xl ">
+        <div className="flex flex-col w-full max-w-lg items-center justify-center py-16 px-4 sm:px-0">
+            <p className="font-pecita text-ps-fo text-base sm:text-xl text-center">
             Your policy summary is ready
             </p>
 
@@ -70,7 +70,7 @@ const Results = () => {
             </div>
             )}
         </div>
-        <button onClick={(e) => navigate('/')} className="gap-2 text-ps-fo font-semibold text-lg cursor-pointer absolute bottom-6 left-4 flex items-center">
+        <button onClick={(e) => navigate('/')} className="gap-2 text-ps-fo font-semibold text-sm sm:text-lg cursor-pointer absolute bottom-4 sm:bottom-6 left-4 flex items-center">
             <FaArrowLeft />Back to Home
         </button>
         <img
@@ -95,26 +95,26 @@ function ControlledCarousel({ chunks, getGradeColor, getLabelColor, overallGrade
 
   return (
     <div className="mt-8 max-w-2xl relative">
-        <button type="button" onClick={prev} aria-label="Previous chunk" className="absolute -left-10 top-1/2 translate-y-1 bg-white/90 rounded-full p-2 shadow-md z-50"><FaChevronLeft /></button>
-        <button type="button" onClick={next} aria-label="Next chunk" className="absolute -right-10 top-1/2 translate-y-1 bg-white/90 rounded-full p-2 shadow-md z-50"><FaChevronRight /></button>
-        <div className="flex flex-row items-center justify-end gap-3 mb-4">
-          <p className="font-secondary text-black font-semibold">Overall Grade</p>
-          <div className={`w-12 h-12 rounded-full ${getGradeColor(overallGrade)} flex items-center justify-center text-white text-lg font-bold`}>
+        <button type="button" onClick={prev} aria-label="Previous chunk" className="absolute -left-6 sm:-left-10 top-1/2 translate-y-1 bg-white/90 rounded-full p-2 shadow-md z-50"><FaChevronLeft /></button>
+        <button type="button" onClick={next} aria-label="Next chunk" className="absolute -right-6 sm:-right-10 top-1/2 translate-y-1 bg-white/90 rounded-full p-2 shadow-md z-50"><FaChevronRight /></button>
+        <div className="flex flex-row items-center justify-end gap-2 sm:gap-3 mb-4">
+          <p className="font-secondary text-black font-semibold text-sm sm:text-base">Overall Grade</p>
+          <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${getGradeColor(overallGrade)} flex items-center justify-center text-white text-base sm:text-lg font-bold`}>
             {overallGrade}
           </div>
         </div>
-        <div className="rounded-3xl border-3 border-ps-yb bg-white/90 p-6 shadow-[0_12px_32px_rgba(0,0,0,0.12)] max-w-xl mx-auto">
-            <div className="flex items-center justify-between mb-4">
-            <span className="text-sm font-secondary font-semibold text-gray-900">Chunk {chunk.chunk_id}/{chunks.length}</span>
+        <div className="rounded-3xl border-3 border-ps-yb bg-white/90 p-4 sm:p-6 shadow-[0_12px_32px_rgba(0,0,0,0.12)] max-w-xl mx-auto">
+            <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+            <span className="text-xs sm:text-sm font-secondary font-semibold text-gray-900">Chunk {chunk.chunk_id}/{chunks.length}</span>
             <div className="flex items-center gap-2">
-                <div className={`w-10 h-10 rounded-full ${getGradeColor(chunk.rating.grade)} flex items-center justify-center text-white font-bold text-sm`}>{chunk.rating.grade}</div>
-                <span style={{ fontFamily: 'Kokoro' }} className={`font-semibold capitalize ${getLabelColor(chunk.rating.label)}`}>{chunk.rating.label}</span>
+                <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full ${getGradeColor(chunk.rating.grade)} flex items-center justify-center text-white font-bold text-xs sm:text-sm`}>{chunk.rating.grade}</div>
+                <span style={{ fontFamily: 'Kokoro' }} className={`font-semibold capitalize text-xs sm:text-base ${getLabelColor(chunk.rating.label)}`}>{chunk.rating.label}</span>
             </div>
         </div>
 
         <p className={`font-secondary text-xs font-semibold uppercase mb-3 ${getLabelColor(chunk.label)}`}>{chunk.label.replace(/_/g, " ")}</p>
 
-        <p className="font-primary font-serif text-black text-sm leading-6 mb-4">{chunk.summary}</p>
+        <p className="font-primary font-serif text-black text-xs sm:text-sm leading-6 mb-4">{chunk.summary}</p>
       </div>
     </div>
   )

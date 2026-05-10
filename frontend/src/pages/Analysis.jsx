@@ -126,12 +126,12 @@ const Analysis = () => {
 
   return (
     <div className="relative flex items-center justify-center min-h-screen overflow-hidden">
-      <p className="absolute top-6 left-4 font-brand text-ps-fo text-3xl mb-4">
+      <p className="absolute top-4 sm:top-6 left-4 font-brand text-ps-fo text-2xl sm:text-3xl mb-4">
         PrivyScan
       </p>
 
-      <div className="flex flex-col w-[550px] items-center justify-center py-16">
-        <p className="font-pecita text-ps-fo text-xl mb-4">
+      <div className="flex flex-col w-full max-w-[550px] items-center justify-center py-16 px-4 sm:px-0">
+        <p className="font-pecita text-ps-fo text-base sm:text-xl mb-4 text-center">
           {isAnalyzing
             ? "Give us a moment- we are analyzing this for you"
             : "Your policy summary is ready"}
@@ -139,9 +139,9 @@ const Analysis = () => {
 
         {/* Loader bar — shown while analyzing (cap displayedStage to last index) */}
         {isAnalyzing && (
-          <div className="bg-gradient-to-r from-ps-yb to-[#6CABE5] border-3 border-ps-yb p-3 rounded-full overflow-hidden w-full">
-            <div className="flex items-center justify-between">
-              <p className="font-secondary font-semibold text-white text-xl">
+          <div className="bg-gradient-to-r from-ps-yb to-[#6CABE5] border-3 border-ps-yb p-2 sm:p-3 rounded-full overflow-hidden w-full">
+            <div className="flex items-center justify-between gap-3">
+              <p className="font-secondary font-semibold text-white text-sm sm:text-xl">
                 {stages[Math.min(displayedStage, stages.length - 1)]?.name}
               </p>
               <Loader isComplete={stageComplete} />
