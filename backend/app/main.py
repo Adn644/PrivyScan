@@ -12,6 +12,7 @@ app.add_middleware(
 		"https://privy-scan.vercel.app",
 		"https://*.vercel.app",
 	],
+	allow_origins=["*"],
 	allow_credentials=False,
 	allow_methods=["*"],
 	allow_headers=["*"],
