@@ -1,6 +1,6 @@
 > **"You clicked 'I agree.' We actually read it."**
 
-PrivyScan — AI-powered privacy policy analyzer that rates Terms & Conditions from A to E, so you know what you're agreeing to before you click accept.
+PrivyScan — AI-powered privacy policy analyzer that rates Terms & Conditions from A to E, so you know what you are agreeing to before you click accept.
 
 | Component | Platform |
 |---|---|
