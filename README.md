@@ -62,30 +62,6 @@ PrivyScan simplifies complex privacy policies using AI and Machine Learning. Use
 | Version Control | GitHub |
 | Containerization | Docker |
 
----
 
-## Backend Setup
-
-### 1. Enter backend folder
-```bash
-cd backend
-```
-
-### 2. Activate virtual environment
-```bash
-venv/Scripts/activate
-```
-
-### 3. Install dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Run backend server
-```bash
-uvicorn app.main:app --reload
-```
-
----
 
 ~ by Team Spaghetti 🍝
