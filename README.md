@@ -1,6 +1,58 @@
+# PrivyScan 🍝
+
 > **"You clicked 'I agree.' We actually read it."**
 
-PrivyScan — AI-powered privacy policy analyzer that rates Terms & Conditions from A to E, so you know what you are agreeing to before you click accept.
+PrivyScan is an AI-powered privacy policy analyzer that summarizes lengthy privacy policies, labels important sections, and rates them from **A to E** based on privacy friendliness — helping users understand what they are agreeing to before clicking accept.
+
+---
+
+## Overview of the Project
+
+PrivyScan simplifies complex privacy policies using AI and Machine Learning. Users can enter a website URL, and the system automatically fetches, summarizes, categorizes, and rates the privacy policy. The goal is to make online privacy information transparent, accessible, and easy to understand.
+
+---
+
+## Models Used
+
+| Task | Model Used |
+|---|---|
+| Summarization | BART |
+| Policy Labelling / Classification | TF-IDF + Logistic Regression |
+| Privacy Rating | LegalBERT |
+
+---
+
+## Dataset Used
+
+| Dataset | Description |
+|---|---|
+| OPP-115 | Annotated dataset of website privacy policies categorized by privacy practices and data usage. |
+| ToS;DR | Community-driven dataset that reviews and rates terms of service and privacy policies. |
+
+---
+
+## Methodology
+
+### 1. Preprocessing
+- Privacy policy extraction
+- Text cleaning
+- Chunking large policies into manageable sections
+
+### 2. Summarization
+- BART generates simplified summaries for each chunk
+
+### 3. Classification / Labelling
+- TF-IDF + Logistic Regression classifies chunks into policy categories
+
+### 4. Privacy Rating
+- LegalBERT assigns privacy ratings from A–E based on privacy practices
+
+### 5. Pipeline Integration
+- All models are merged into a single end-to-end processing pipeline
+
+---
+
+## Tech Stack
 
 | Component | Platform |
 |---|---|
@@ -10,12 +62,30 @@ PrivyScan — AI-powered privacy policy analyzer that rates Terms & Conditions f
 | Version Control | GitHub |
 | Containerization | Docker |
 
-To Run Backend Server or to install something
-1. enter be folder: cd backend
-2. activate venv: venv/Scripts/activate
-3. install dependencies or start server
-4. Installation: pip install deps
-5. to start server: uvicorn app.main:app --reload
+---
 
+## Backend Setup
 
-~by Team Spaghetti
+### 1. Enter backend folder
+```bash
+cd backend
+```
+
+### 2. Activate virtual environment
+```bash
+venv/Scripts/activate
+```
+
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run backend server
+```bash
+uvicorn app.main:app --reload
+```
+
+---
+
+~ by Team Spaghetti 🍝
